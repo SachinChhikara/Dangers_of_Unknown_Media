@@ -309,3 +309,4 @@ rownames(muslim_median_combined_table) <- c("Above Median Number of Students", "
 
 write_csv(muslim_median_combined_table, 
           "outputs/models/muslim_median_combined.csv")
+
