@@ -22,7 +22,7 @@ library(scales)
 library(cowplot)
 library(data.table)
 
-load("/cloud/project/inputs/data/df1.rda")
+load("inputs/data/df1.rda")
 
 ### Graph for proportion of different types of response based on senders'ethnicity and big city ###
 
