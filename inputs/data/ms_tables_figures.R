@@ -5,7 +5,7 @@
 # Title: The Unequal Distribution of Opportunity: 
 # A National Audit Study of Bureaucratic Discrimination in Primary School Access
 #
-# Authors: Asmus Leth Olsen, Jonas Høgh Kyhse-Andersen and Donald Moynihan                                                                          
+# Authors: Asmus Leth Olsen, Jonas H?gh Kyhse-Andersen and Donald Moynihan                                                                          
 #                                   
 # Summary: Replication code for producing all tables, figures and facts in the main text.    
 #
@@ -23,6 +23,7 @@ library(estimatr)
 library(texreg)
 library(scales)
 library(cowplot)
+library(grid)
 
 ####################
 # Note to the reader
@@ -35,7 +36,7 @@ library(cowplot)
 setwd(dirname(rstudioapi::getSourceEditorContext()$path))
 
 #load data for main analysis
-load("df1.Rda")
+load("inputs/data/df1.rda")
 
 ##########################################################
 # Facts in section 'Abstract' & 'Introduction'
@@ -360,12 +361,11 @@ legend <- get_legend(fig3a)
 fig3a <- fig3a + theme(text = element_text(size=12),legend.position="none",axis.text.x=element_blank()) 
 
 #Saving figure 3 as PNG
-fig3 <- grid.arrange(fig3a, fig3b, fig3c, legend, nrow = 1, widths=c(2, 2, 2, 1))
-ggsave(file = "figure3.png",fig3,width=8,height=4,scale=1)
+fig3 <- grid.arrange(fig3a, fig3b, fig3c, legend, nrow = 1, widths=c(2, 2, 2, 1), top=textGrob("Decision type rate based on each treatment", gp=gpar(fontsize=15,font=8)))
+ggsave(file = "replicated_figure.png",fig3,path = "outputs/models",width=8,height=4,scale=1)
 
 #Saving figure 3 as PDF
 ggsave(file = "figure3.pdf",fig3,width=8,height=4,scale=1)
-
 
 ##########################################################
 # Facts in section 'Decision to Accept or Reject Students'
