@@ -22,127 +22,89 @@ library(tidyverse)
 library(palmerpenguins)
 ```
 
-
 # Introduction
 
-You can and should cross-reference sections and sub-sections. 
+You can and should cross-reference sections and sub-sections.
 
-The remainder of this paper is structured as follows. @sec-data....
-
-
+The remainder of this paper is structured as follows. @sec-data.... \newpage
 
 # Data {#sec-data}
 
-Some of our data is of penguins (@fig-bills), from @palmerpenguins.
+## Source
+
+The original paper, "The Unequal Distribution of Opportunity: A National Audit Study of Bureaucratic Discrimination in Primary School Access(2020) by Olsen, Kyhse-Anderson, Moynihan", was replicated from American Journal of Social Science.
+
+@fig-decision_rate1 is one of the results in the original study, and it shows the decision type rate based on the different treatments (Muslim/Danish). In addition to the results depicted in @fig-decision_rate1, we proceeded the analysis by incorporating new variables, namely the characteristics of schools.
 
 ```{r}
-#| label: fig-bills
-#| fig-cap: Bills of penguins
 #| echo: false
-
-ggplot(penguins, aes(x = island, fill = species)) +
-  geom_bar(alpha = 0.8) +
-  scale_fill_manual(values = c("darkorange","purple","cyan4"),
-                    guide = "none") +
-  theme_minimal() +
-  facet_wrap(~species, ncol = 1) +
-  coord_flip()
-```
-
-Talk more about it.
-
-And also planes (@fig-planes). (You can change the height and width, but don't worry about doing that until you have finished every other aspect of the paper - Quarto will try to make it look nice and the defaults usually work well once you have enough text.)
-
-```{r}
-#| label: fig-planes
-#| fig-cap: Relationship between wing length and width
-#| echo: false
-#| warning: false
+#| label: fig-decision_rate1
 #| message: false
-
-analysis_data <- read_csv(here::here("outputs/data/analysis_data.csv"))
-
-analysis_data |> 
-  ggplot(aes(x = width, y = length)) +
-  geom_point(alpha = 0.8) +
-  theme_minimal() +
-  labs(x = "Wing width (mm)",
-       y = "Wing length (mm)")
+#| fig-cap: Decision type rate based on each treatment
+knitr::include_graphics(file.path(here::here(),"outputs/models/replicated_figure.png"))
 ```
 
-Talk way more about it. 
+## Overview of Senders and Respondents' traits
 
+In the original experiment, the designed sender attributes consist of two categories: names (Muslim and Danish names) and the Diligence trait. Also, the respondent schools are classified based on six characteristics: whether the school is located in a major city, its geographical region, the average student grades, the number of students, the number of non-Danish students, and the school type. Theses school characteristics were investigated through the Danish Ministry of Education database in the original study. Below is a summary.
 
+[***Senders trait***]{.underline}
 
-# Model
+-   **Name**:
 
-The goal of our modelling strategy is twofold. Firstly,...
+    -   Danish: Peter Nielsen
 
-Here we briefly describe the Bayesian analysis model used to investigate... Background details and diagnostics are included in [Appendix -@sec-model-details].
+    -   Muslim: Mohammad Osman
 
-## Model set-up
+-   **Diligence trait**:
 
-Define $y_i$ as the number of seconds that the plane remained aloft. Then $\beta_i$ is the wing width and $\gamma_i$ is the wing length, both measured in millimeters.  
+    Diligence trait was classified based on the content of the emails, according to the experiment setting in the original study.
 
-\begin{align} 
-y_i|\mu_i, \sigma &\sim \mbox{Normal}(\mu_i, \sigma) \\
-\mu_i &= \alpha + \beta_i + \gamma_i\\
-\alpha &\sim \mbox{Normal}(0, 2.5) \\
-\beta &\sim \mbox{Normal}(0, 2.5) \\
-\gamma &\sim \mbox{Normal}(0, 2.5) \\
-\sigma &\sim \mbox{Exponential}(1)
-\end{align}
+    -   Hi \[school name\]. I am writing because we would like to move our son to another school.
 
-We run the model in R [@citeR] using the `rstanarm` package of @rstanarm. We use the default priors from `rstanarm`.
+        [Non-diligent student treatment]{.underline}: He is in 3rd grade and we don't think that it is going very well at this school
 
+        [Diligent student treatment]{.underline}: He is in 3rd grade and the teachers say that he is doing well with his homework. but we still don't think that it is going very well at this school
 
-### Model justification
+[***Respondents'(School) trait***]{.underline}
 
-We expect a positive relationship between the size of the wings and time spent aloft. In particular...
+-   **Major(Big) city**: whether the school is located in a big city
 
-We can use maths by including latex between dollar signs, for instance $\theta$.
+-   **Geographical region**: Reion Hovedstade, Region Midtjylland, Region Nordjylland, Region Sjaelland or Region Syddanmark
 
+-   **School type**: Public or Private
+
+-   **Number of Students**
+
+-   **Number of Non-Danish Students**
+
+-   **Average Grade of Students**
+
+## Methodology
+
+As mentioned above, this paper examines how the characteristics of schools, in addition to the original experiment's results for decision type rates, impact Muslim's admission to private schools in Denmark. The following subsection will provide detailed explanations of how and why each piece of data was used or not.
+
+### Decision type
+
+As shown on @fig-decision_rate1, in the original study, the schools' responses were categorized into three decision types: clear rejection, unclear response and clear acceptance. According to the study, two coders categorized each response email into these three decision types, and the responses categorized by two coders were denoted by response1 and response2. As a result, the Cronbach's alpha analysis revealed minimal difference in perception between the two coders regarding the response emails. Therefore, in this paper, only Response type 1 is used, and the they are denoted as reject1, unclear1, accept1 in the data set.
+
+### Using Senders and Respondents' traits
+
+Followed by the Senders and Respondents' trait above, the original study also investigated whether each school is above the median level of trait(Number of Students, Number of Non-Danish Students and Students' grade). Based on this examination, this study examined how schools with above-median and below-median traits influence the decision type rate through proportional contrasts. Additionally, the impact of school location and school type on Muslim's decision type rate will be investigated.
+
+### Not using Diligence trait
+
+Finally, diligence trait is excluded from this study. This decision is based on the original research, which revealed through the full ordinary least square(OLS) results that diligence traits do not have any effect on outcome variables such as response rate or the decision to accept or reject students.
 
 # Results
 
 Our results are summarized in @tbl-modelresults.
 
-```{r}
-#| echo: false
-#| eval: true
-#| warning: false
-#| message: false
-
-library(rstanarm)
-
-first_model <-
-  readRDS(file = here::here("outputs/models/first_model.rds"))
-```
-
-```{r}
-#| echo: false
-#| eval: true
-#| label: tbl-modelresults
-#| tbl-cap: "Explanatory models of flight time based on wing width and wing length"
-#| warning: false
-
-modelsummary::modelsummary(
-  list(
-    "First model" = first_model
-  ),
-  statistic = "mad",
-  fmt = 2
-)
-```
-
-
-
-
 # Discussion
 
 ## First discussion point {#sec-first-point}
 
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this. 
+If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this.
 
 ## Second discussion point
 
@@ -154,68 +116,4 @@ Weaknesses and next steps should also be included.
 
 \newpage
 
-\appendix
-
-# Appendix {-}
-
-
-# Additional data details
-
-# Model details {#sec-model-details}
-
-## Posterior predictive check
-
-In @fig-ppcheckandposteriorvsprior-1 we implement a posterior predictive check. This shows...
-
-In @fig-ppcheckandposteriorvsprior-2 we compare the posterior with the prior. This shows... 
-
-```{r}
-#| eval: true
-#| echo: false
-#| message: false
-#| warning: false
-#| label: fig-ppcheckandposteriorvsprior
-#| layout-ncol: 2
-#| fig-cap: "Examining how the model fits, and is affected by, the data"
-#| fig-subcap: ["Posterior prediction check", "Comparing the posterior with the prior"]
-
-pp_check(first_model) +
-  theme_classic() +
-  theme(legend.position = "bottom")
-
-posterior_vs_prior(first_model) +
-  theme_minimal() +
-  scale_color_brewer(palette = "Set1") +
-  theme(legend.position = "bottom") +
-  coord_flip()
-```
-
-## Diagnostics
-
-@fig-stanareyouokay-1 is a trace plot. It shows... This suggests...
-
-@fig-stanareyouokay-2 is a Rhat plot. It shows... This suggests...
-
-```{r}
-#| echo: false
-#| eval: true
-#| message: false
-#| warning: false
-#| label: fig-stanareyouokay
-#| fig-cap: "Checking the convergence of the MCMC algorithm"
-#| fig-subcap: ["Trace plot", "Rhat plot"]
-#| layout-ncol: 2
-
-plot(first_model, "trace")
-
-plot(first_model, "rhat")
-```
-
-
-
-\newpage
-
-
 # References
-
-
