@@ -31,11 +31,14 @@ library(ggplot2)
 # This script is arranged in the order as the figures, tables and facts are presented in the manuscript.
 # A separate codebook provides definition of all variables and their respective values.
 
+
+
 ##set path for data
 setwd(dirname(rstudioapi::getSourceEditorContext()$path))
 
+
 #load data for main analysis
-load("df1.Rda")
+load("../inputs/data/df1.Rda")
 
 ##########################################################
 # Facts in section 'Abstract' & 'Introduction'
