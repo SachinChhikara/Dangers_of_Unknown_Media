@@ -134,6 +134,7 @@ ggplot(data, aes(x = group, y = mean, fill = group)) +
        y = "Mean") +
   theme_minimal()
 
+### replication for Figure 3 in the original paper ###
 ####Estimates used in Panel C
 m1fig3c <- lm_robust(accept1~I(t_mohammad==0), data=df1, se_type="HC2")
 m2fig3c <- lm_robust(accept1~t_mohammad, data=df1, se_type="HC2")
