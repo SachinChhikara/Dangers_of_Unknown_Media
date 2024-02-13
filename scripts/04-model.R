@@ -27,12 +27,12 @@ load("inputs/data/df1.rda")
 ### Graph for proportion of different types of response based on senders'ethnicity and big city ###
 
 # calculation for proportion 
-prop1 <- sum(df1$t_mohammad == '0' & df1$reject1 == '1' & df1$bigcity == '1')/sum(df1$t_mohammad == '0' & df1$bigcity == '1')
-prop2 <-sum(df1$t_mohammad == '1' & df1$reject1 == '1' & df1$bigcity == '1')/sum(df1$t_mohammad == '1' & df1$bigcity == '1')
-prop3 <-sum(df1$t_mohammad == '0' & df1$unclear1 == '1' & df1$bigcity == '1')/sum(df1$t_mohammad == '0' & df1$bigcity == '1')
-prop4 <-sum(df1$t_mohammad == '1' & df1$unclear1 == '1' & df1$bigcity == '1')/sum(df1$t_mohammad == '1' & df1$bigcity == '1')
-prop5 <- sum(df1$t_mohammad == '0' & df1$accept1 == '1' & df1$bigcity == '1')/sum(df1$t_mohammad == '0' & df1$bigcity == '1')
-prop6 <- sum(df1$t_mohammad == '1' & df1$accept1 == '1' & df1$bigcity == '1')/sum(df1$t_mohammad == '1' & df1$bigcity == '1')
+prop1 <- sum(df1$t_mohammad == '1' & df1$reject1 == '1' & df1$bigcity == '1')/sum(df1$t_mohammad == '1' & df1$bigcity == '1')
+prop2 <-sum(df1$t_mohammad == '0' & df1$reject1 == '1' & df1$bigcity == '1')/sum(df1$t_mohammad == '0' & df1$bigcity == '1')
+prop3 <-sum(df1$t_mohammad == '1' & df1$unclear1 == '1' & df1$bigcity == '1')/sum(df1$t_mohammad == '1' & df1$bigcity == '1')
+prop4 <-sum(df1$t_mohammad == '0' & df1$unclear1 == '1' & df1$bigcity == '1')/sum(df1$t_mohammad == '0' & df1$bigcity == '1')
+prop5 <- sum(df1$t_mohammad == '1' & df1$accept1 == '1' & df1$bigcity == '1')/sum(df1$t_mohammad == '1' & df1$bigcity == '1')
+prop6 <- sum(df1$t_mohammad == '0' & df1$accept1 == '1' & df1$bigcity == '1')/sum(df1$t_mohammad == '0' & df1$bigcity == '1')
 
 # make a 2 by 2 table for proportion 
 first_figure <- tibble(Treatment = c("Muslim","Danish"),avg = c(prop1, prop2))
@@ -83,12 +83,12 @@ saveRDS(
   file = "outputs/models/bigcity_prop.rds"
 )
 
-prop7 <- sum(df1$t_mohammad == '0' & df1$reject1 == '1' & df1$bigcity == '0')/sum(df1$t_mohammad == '0' & df1$bigcity == '0')
-prop8 <-sum(df1$t_mohammad == '1' & df1$reject1 == '1' & df1$bigcity == '0')/sum(df1$t_mohammad == '1' & df1$bigcity == '0')
-prop9 <-sum(df1$t_mohammad == '0' & df1$unclear1 == '1' & df1$bigcity == '0')/sum(df1$t_mohammad == '0' & df1$bigcity == '0')
-prop10 <-sum(df1$t_mohammad == '1' & df1$unclear1 == '1' & df1$bigcity == '0')/sum(df1$t_mohammad == '1' & df1$bigcity == '0')
-prop11 <- sum(df1$t_mohammad == '0' & df1$accept1 == '1' & df1$bigcity == '0')/sum(df1$t_mohammad == '0' & df1$bigcity == '0')
-prop12 <- sum(df1$t_mohammad == '1' & df1$accept1 == '1' & df1$bigcity == '0')/sum(df1$t_mohammad == '1' & df1$bigcity == '0')
+prop7 <- sum(df1$t_mohammad == '1' & df1$reject1 == '1' & df1$bigcity == '0')/sum(df1$t_mohammad == '1' & df1$bigcity == '0')
+prop8 <-sum(df1$t_mohammad == '0' & df1$reject1 == '1' & df1$bigcity == '0')/sum(df1$t_mohammad == '0' & df1$bigcity == '0')
+prop9 <-sum(df1$t_mohammad == '1' & df1$unclear1 == '1' & df1$bigcity == '0')/sum(df1$t_mohammad == '1' & df1$bigcity == '0')
+prop10 <-sum(df1$t_mohammad == '0' & df1$unclear1 == '1' & df1$bigcity == '0')/sum(df1$t_mohammad == '0' & df1$bigcity == '0')
+prop11 <- sum(df1$t_mohammad == '1' & df1$accept1 == '1' & df1$bigcity == '0')/sum(df1$t_mohammad == '1' & df1$bigcity == '0')
+prop12 <- sum(df1$t_mohammad == '0' & df1$accept1 == '1' & df1$bigcity == '0')/sum(df1$t_mohammad == '0' & df1$bigcity == '0')
 
 fourth_figure <- tibble(Treatment = c("Muslim","Danish"),avg = c(prop7, prop8))
 
@@ -104,7 +104,7 @@ fourth_graph <- ggplot(fourth_figure, aes(x=Treatment,y=avg,fill=Treatment)) +
 
 fifth_figure <- tibble(Treatment = c("Muslim","Danish"),avg = c(prop9, prop10))
 
-fifth_graph <- ggplot(second_figure, aes(x=Treatment,y=avg,fill=Treatment)) +
+fifth_graph <- ggplot(fifth_figure, aes(x=Treatment,y=avg,fill=Treatment)) +
   geom_bar(stat="identity",position="dodge", color= "black", width=.5)+
   geom_text(aes(y=avg, label=round(avg,3)), position=position_dodge(width=0.9), vjust=-.75)+
   labs(y="",x="Unclear Rejection",title="B")+
@@ -116,7 +116,7 @@ fifth_graph <- ggplot(second_figure, aes(x=Treatment,y=avg,fill=Treatment)) +
 
 sixth_figure <- tibble(Treatment = c("Muslim", "Danish"), avg = c(prop11, prop12))
 
-sixth_graph <- ggplot(third_figure, aes(x=Treatment,y=avg,fill=Treatment)) +
+sixth_graph <- ggplot(sixth_figure, aes(x=Treatment,y=avg,fill=Treatment)) +
   geom_bar(stat="identity",position="dodge", color= "black", width=.5)+
   geom_text(aes(y=avg, label=round(avg,3)), position=position_dodge(width=0.9), vjust=-.75)+
   labs(y="",x="Clear Acceptance",title="C")+
@@ -136,12 +136,12 @@ saveRDS(
 
 ### Graph for proportion of different types of responses based on senders' ethnicity and school type, private or public
 # calculation for proportion 
-prop1 <- sum(df1$t_mohammad == '0' & df1$reject1 == '1' & df1$school_type == '1')/sum(df1$t_mohammad == '0' & df1$school_type == '1')
-prop2 <-sum(df1$t_mohammad == '1' & df1$reject1 == '1' & df1$school_type == '1')/sum(df1$t_mohammad == '1' & df1$school_type == '1')
-prop3 <-sum(df1$t_mohammad == '0' & df1$unclear1 == '1' & df1$school_type == '1')/sum(df1$t_mohammad == '0' & df1$school_type == '1')
-prop4 <-sum(df1$t_mohammad == '1' & df1$unclear1 == '1' & df1$school_type == '1')/sum(df1$t_mohammad == '1' & df1$school_type == '1')
-prop5 <- sum(df1$t_mohammad == '0' & df1$accept1 == '1' & df1$school_type == '1')/sum(df1$t_mohammad == '0' & df1$school_type == '1')
-prop6 <- sum(df1$t_mohammad == '1' & df1$accept1 == '1' & df1$school_type == '1')/sum(df1$t_mohammad == '1' & df1$school_type == '1')
+prop1 <- sum(df1$t_mohammad == '1' & df1$reject1 == '1' & df1$school_type == '1')/sum(df1$t_mohammad == '1' & df1$school_type == '1')
+prop2 <-sum(df1$t_mohammad == '0' & df1$reject1 == '1' & df1$school_type == '1')/sum(df1$t_mohammad == '0' & df1$school_type == '1')
+prop3 <-sum(df1$t_mohammad == '1' & df1$unclear1 == '1' & df1$school_type == '1')/sum(df1$t_mohammad == '1' & df1$school_type == '1')
+prop4 <-sum(df1$t_mohammad == '0' & df1$unclear1 == '1' & df1$school_type == '1')/sum(df1$t_mohammad == '0' & df1$school_type == '1')
+prop5 <- sum(df1$t_mohammad == '1' & df1$accept1 == '1' & df1$school_type == '1')/sum(df1$t_mohammad == '1' & df1$school_type == '1')
+prop6 <- sum(df1$t_mohammad == '0' & df1$accept1 == '1' & df1$school_type == '1')/sum(df1$t_mohammad == '0' & df1$school_type == '1')
 
 # make a 2 by 2 table for proportion 
 first_figure <- tibble(Treatment = c("Muslim","Danish"),avg = c(prop1, prop2))
@@ -192,12 +192,12 @@ saveRDS(
   file = "outputs/models/public_school_prop.rds"
 )
 
-prop7 <- sum(df1$t_mohammad == '0' & df1$reject1 == '1' & df1$school_type == '0')/sum(df1$t_mohammad == '0' & df1$school_type == '0')
-prop8 <-sum(df1$t_mohammad == '1' & df1$reject1 == '1' & df1$school_type == '0')/sum(df1$t_mohammad == '1' & df1$school_type == '0')
-prop9 <-sum(df1$t_mohammad == '0' & df1$unclear1 == '1' & df1$school_type == '0')/sum(df1$t_mohammad == '0' & df1$school_type == '0')
-prop10 <-sum(df1$t_mohammad == '1' & df1$unclear1 == '1' & df1$school_type == '0')/sum(df1$t_mohammad == '1' & df1$school_type == '0')
-prop11 <- sum(df1$t_mohammad == '0' & df1$accept1 == '1' & df1$school_type == '0')/sum(df1$t_mohammad == '0' & df1$school_type == '0')
-prop12 <- sum(df1$t_mohammad == '1' & df1$accept1 == '1' & df1$school_type == '0')/sum(df1$t_mohammad == '1' & df1$school_type == '0')
+prop7 <- sum(df1$t_mohammad == '1' & df1$reject1 == '1' & df1$school_type == '0')/sum(df1$t_mohammad == '1' & df1$school_type == '0')
+prop8 <-sum(df1$t_mohammad == '0' & df1$reject1 == '1' & df1$school_type == '0')/sum(df1$t_mohammad == '0' & df1$school_type == '0')
+prop9 <-sum(df1$t_mohammad == '1' & df1$unclear1 == '1' & df1$school_type == '0')/sum(df1$t_mohammad == '1' & df1$school_type == '0')
+prop10 <-sum(df1$t_mohammad == '0' & df1$unclear1 == '1' & df1$school_type == '0')/sum(df1$t_mohammad == '0' & df1$school_type == '0')
+prop11 <- sum(df1$t_mohammad == '1' & df1$accept1 == '1' & df1$school_type == '0')/sum(df1$t_mohammad == '1' & df1$school_type == '0')
+prop12 <- sum(df1$t_mohammad == '0' & df1$accept1 == '1' & df1$school_type == '0')/sum(df1$t_mohammad == '0' & df1$school_type == '0')
 
 fourth_figure <- tibble(Treatment = c("Muslim","Danish"),avg = c(prop7, prop8))
 
@@ -213,7 +213,7 @@ fourth_graph <- ggplot(fourth_figure, aes(x=Treatment,y=avg,fill=Treatment)) +
 
 fifth_figure <- tibble(Treatment = c("Muslim","Danish"),avg = c(prop9, prop10))
 
-fifth_graph <- ggplot(second_figure, aes(x=Treatment,y=avg,fill=Treatment)) +
+fifth_graph <- ggplot(fifth_figure, aes(x=Treatment,y=avg,fill=Treatment)) +
   geom_bar(stat="identity",position="dodge", color= "black", width=.5)+
   geom_text(aes(y=avg, label=round(avg,3)), position=position_dodge(width=0.9), vjust=-.75)+
   labs(y="",x="Unclear Rejection",title="B")+
@@ -225,7 +225,7 @@ fifth_graph <- ggplot(second_figure, aes(x=Treatment,y=avg,fill=Treatment)) +
 
 sixth_figure <- tibble(Treatment = c("Muslim", "Danish"), avg = c(prop11, prop12))
 
-sixth_graph <- ggplot(third_figure, aes(x=Treatment,y=avg,fill=Treatment)) +
+sixth_graph <- ggplot(sixth_figure, aes(x=Treatment,y=avg,fill=Treatment)) +
   geom_bar(stat="identity",position="dodge", color= "black", width=.5)+
   geom_text(aes(y=avg, label=round(avg,3)), position=position_dodge(width=0.9), vjust=-.75)+
   labs(y="",x="Clear Acceptance",title="C")+
@@ -305,7 +305,7 @@ prop18 <- sum(df1$t_mohammad == '1' & df1$accept1 == '1' & df1$above_median_non_
 
 muslim_median_combined_table <- data.frame("Clear" = c(prop1, prop4, prop7, prop10, prop13, prop16), "Unclear" = c(prop2, prop5, prop8, prop11, prop14, prop17),
                                            "Accept" = c(prop3, prop6, prop9, prop12, prop15, prop18))
-rownames(muslim_median_combined_table) <- c("Above Median Number of Students", "Below Median Number of Students", "Above Median Grade", "Below Median Grade", "Above Median Number of Dansih Students", "Below Median Number of Danish Students")
+rownames(muslim_median_combined_table) <- c("Above Median Number of Students", "Below Median Number of Students", "Above Median Grade", "Below Median Grade", "Above Median Number of Danish Students", "Below Median Number of Danish Students")
 
 write_csv(muslim_median_combined_table, 
           "outputs/models/muslim_median_combined.csv")

@@ -134,8 +134,37 @@ ggplot(data, aes(x = group, y = mean, fill = group)) +
        y = "Mean") +
   theme_minimal()
 
-### replication for Figure 3 in the original paper ###
+
+##########################################
+#Figure 3: Decision Type Rate by Treatment
+##########################################
+
+####Estimates used in Panel A
+m1fig3a <- lm_robust(reject1~I(t_mohammad==0), data=df1, se_type="HC2")
+m2fig3a <- lm_robust(reject1~t_mohammad, data=df1, se_type="HC2")
+
+figure3a <- tibble(
+  Treatment = c("Muslim","Danish"),
+  avg = c(coef(m1fig3a)[1],coef(m2fig3a)[1]), 
+  lower = c(confint(m1fig3a)[c(1)],confint(m2fig3a)[c(1)]),
+  upper = c(confint(m1fig3a)[c(3)],confint(m2fig3a)[c(3)])
+)
+
+####Estimates used in Panel B
+m1fig3b <- lm_robust(unclear1~I(t_mohammad==0), data=df1, se_type="HC2")
+m2fig3b <- lm_robust(unclear1~t_mohammad, data=df1, se_type="HC2")
+
+figure3b <- tibble(
+  Treatment = c("Muslim","Danish"),
+  avg = c(coef(m1fig3b)[1],coef(m2fig3b)[1]), 
+  lower = c(confint(m1fig3b)[c(1)],confint(m2fig3b)[c(1)]),
+  upper = c(confint(m1fig3b)[c(3)],confint(m2fig3b)[c(3)])
+)
+
 ####Estimates used in Panel C
+m1fig3c <- lm_robust(accept1~I(t_mohammad==0), data=df1, se_type="HC2")
+m2fig3c <- lm_robust(accept1~t_mohammad, data=df1, se_type="HC2")
+
 m1fig3c <- lm_robust(accept1~I(t_mohammad==0), data=df1, se_type="HC2")
 m2fig3c <- lm_robust(accept1~t_mohammad, data=df1, se_type="HC2")
 
