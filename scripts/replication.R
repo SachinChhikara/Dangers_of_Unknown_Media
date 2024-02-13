@@ -134,6 +134,61 @@ ggplot(data, aes(x = group, y = mean, fill = group)) +
        y = "Mean") +
   theme_minimal()
 
+####Estimates used in Panel C
+m1fig3c <- lm_robust(accept1~I(t_mohammad==0), data=df1, se_type="HC2")
+m2fig3c <- lm_robust(accept1~t_mohammad, data=df1, se_type="HC2")
+
+figure3c <- tibble(
+  Treatment = c("Muslim","Danish"),
+  avg = c(coef(m1fig3c)[1],coef(m2fig3c)[1]), 
+  lower = c(confint(m1fig3c)[c(1)],confint(m2fig3c)[c(1)]),
+  upper = c(confint(m1fig3c)[c(3)],confint(m2fig3c)[c(3)])
+)
+
+####Figure in Panel A
+fig3a <-  ggplot(figure3a, aes(x=Treatment,y=avg,fill=Treatment)) +
+  geom_bar(stat="identity",position="dodge", color= "black", width=.5)+
+  geom_errorbar(aes(ymin=lower, ymax=upper), width=.2,position=position_dodge(.9))+
+  geom_text(aes(y=upper, label=round(avg,3)), position=position_dodge(width=0.9), vjust=-.75)+
+  labs(y="Decision Type Rate",x="Clear Rejection",title="A")+
+  scale_fill_manual(values=c("grey","white")) +  
+  scale_y_continuous(breaks=c(0,.1,.2,.3,.4,.5), limits=c(0,.5))+
+  theme_minimal()+
+  theme(text = element_text(size=12),
+        axis.text.x=element_blank(), axis.ticks.x=element_blank()) 
+
+####Figure in Panel B
+fig3b <- ggplot(figure3b, aes(x=Treatment,y=avg,fill=Treatment)) +
+  geom_bar(stat="identity",position="dodge", color= "black", width=.5)+
+  geom_errorbar(aes(ymin=lower, ymax=upper), width=.2,position=position_dodge(.9))+
+  geom_text(aes(y=upper, label=round(avg,3)), position=position_dodge(width=0.9), vjust=-.75)+  
+  labs(y="",x="Unclear Response", title="B")+
+  scale_fill_manual(values=c("grey","white")) +  
+  scale_y_continuous(breaks=c(0,.1,.2,.3,.4,.5), limits=c(0,.5))+
+  theme_minimal()+
+  theme(text = element_text(size=12),legend.position="none",
+        axis.text.x=element_blank(), axis.ticks.x=element_blank()) 
+
+####Figure in Panel C
+fig3c <- ggplot(figure3c, aes(x=Treatment,y=avg,fill=Treatment)) +
+  geom_bar(stat="identity",position="dodge", color= "black", width=.5)+
+  geom_errorbar(aes(ymin=lower, ymax=upper), width=.2,position=position_dodge(.9))+
+  geom_text(aes(y=upper, label=round(avg,3)), position=position_dodge(width=0.9), vjust=-.75)+  
+  labs(y="",x="Clear Acceptance",title="C")+
+  scale_fill_manual(values=c("grey","white")) + 
+  scale_y_continuous(breaks=c(0,.1,.2,.3,.4,.5), limits=c(0,.5))+
+  theme_minimal()+
+  theme(text = element_text(size=12),legend.position="none",
+        axis.text.x=element_blank(), axis.ticks.x=element_blank()) 
+
+#get common legend
+legend <- get_legend(fig3a)
+fig3a <- fig3a + theme(text = element_text(size=12),legend.position="none",axis.text.x=element_blank()) 
+
+#Saving figure 3 as PNG
+fig3 <- grid.arrange(fig3a, fig3b, fig3c, legend, nrow = 1, widths=c(2, 2, 2, 1), top=textGrob("Decision type rate based on each treatment", gp=gpar(fontsize=15,font=8)))
+ggsave(file = "replicated_figure.png",fig3,path = "outputs/models",width=8,height=4,scale=1)
+
 
 
 ##############
