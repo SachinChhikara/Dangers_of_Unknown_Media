@@ -181,7 +181,6 @@ figure3c <- tibble(
 ####Figure in Panel A
 fig3a <-  ggplot(figure3a, aes(x=Treatment,y=avg,fill=Treatment)) +
   geom_bar(stat="identity",position="dodge", color= "black", width=.5)+
-  geom_errorbar(aes(ymin=lower, ymax=upper), width=.2,position=position_dodge(.9))+
   geom_text(aes(y=upper, label=round(avg,3)), position=position_dodge(width=0.9), vjust=-.75)+
   labs(y="Decision Type Rate",x="Clear Rejection",title="A")+
   scale_fill_manual(values=c("grey","white")) +  
@@ -193,7 +192,6 @@ fig3a <-  ggplot(figure3a, aes(x=Treatment,y=avg,fill=Treatment)) +
 ####Figure in Panel B
 fig3b <- ggplot(figure3b, aes(x=Treatment,y=avg,fill=Treatment)) +
   geom_bar(stat="identity",position="dodge", color= "black", width=.5)+
-  geom_errorbar(aes(ymin=lower, ymax=upper), width=.2,position=position_dodge(.9))+
   geom_text(aes(y=upper, label=round(avg,3)), position=position_dodge(width=0.9), vjust=-.75)+  
   labs(y="",x="Unclear Response", title="B")+
   scale_fill_manual(values=c("grey","white")) +  
@@ -205,7 +203,6 @@ fig3b <- ggplot(figure3b, aes(x=Treatment,y=avg,fill=Treatment)) +
 ####Figure in Panel C
 fig3c <- ggplot(figure3c, aes(x=Treatment,y=avg,fill=Treatment)) +
   geom_bar(stat="identity",position="dodge", color= "black", width=.5)+
-  geom_errorbar(aes(ymin=lower, ymax=upper), width=.2,position=position_dodge(.9))+
   geom_text(aes(y=upper, label=round(avg,3)), position=position_dodge(width=0.9), vjust=-.75)+  
   labs(y="",x="Clear Acceptance",title="C")+
   scale_fill_manual(values=c("grey","white")) + 
@@ -223,7 +220,101 @@ fig3 <- grid.arrange(fig3a, fig3b, fig3c, legend, nrow = 1, widths=c(2, 2, 2, 1)
 ggsave(file = "replicated_figure.png",fig3,path = "outputs/models",width=8,height=4,scale=1)
 
 
+###############################################################
+# Figure 4: Compliance Costs by Treatment
+###############################################################
 
+####Estimates used in panel A
+m1fig4a <- lm_robust(simple_q~I(t_mohammad==0), data=df1, se_type="HC2")
+m2fig4a <- lm_robust(simple_q~t_mohammad, data=df1, se_type="HC2")
+figure4a <- tibble(
+  Treatment = c("Muslim","Danish"),
+  avg = c(coef(m1fig4a)[1],coef(m2fig4a)[1]), 
+  lower = c(confint(m1fig4a)[c(1)],confint(m2fig4a)[c(1)]),
+  upper = c(confint(m1fig4a)[c(3)],confint(m2fig4a)[c(3)])
+)
+
+####Estimates used in panel B
+m1fig4b <- lm_robust(complex_q~I(t_mohammad==0), data=df1, se_type="HC2")
+m2fig4b <- lm_robust(complex_q~t_mohammad, data=df1, se_type="HC2")
+figure4b <- tibble(
+  Treatment = c("Muslim","Danish"),
+  avg = c(coef(m1fig4b)[1],coef(m2fig4b)[1]), 
+  lower = c(confint(m1fig4b)[c(1)],confint(m2fig4b)[c(1)]),
+  upper = c(confint(m1fig4b)[c(3)],confint(m2fig4b)[c(3)])
+)
+
+####Estimates used in panel C
+m1fig4c <- lm_robust(contact_q~I(t_mohammad==0), data=df1, se_type="HC2")
+m2fig4c <- lm_robust(contact_q~t_mohammad, data=df1, se_type="HC2")
+figure4c <- tibble(
+  Treatment = c("Muslim","Danish"),
+  avg = c(coef(m1fig4c)[1],coef(m2fig4c)[1]), 
+  lower = c(confint(m1fig4c)[c(1)],confint(m2fig4c)[c(1)]),
+  upper = c(confint(m1fig4c)[c(3)],confint(m2fig4c)[c(3)])
+)
+
+####Estimates used in panel D
+m1fig4d <- lm_robust(meeting_q~I(t_mohammad==0), data=df1, se_type="HC2")
+m2fig4d <- lm_robust(meeting_q~t_mohammad, data=df1, se_type="HC2")
+figure4d <- tibble(
+  Treatment = c("Muslim","Danish"),
+  avg = c(coef(m1fig4d)[1],coef(m2fig4d)[1]), 
+  lower = c(confint(m1fig4d)[c(1)],confint(m2fig4d)[c(1)]),
+  upper = c(confint(m1fig4d)[c(3)],confint(m2fig4d)[c(3)])
+)
+
+####Figure in Panel A
+fig4a <- ggplot(figure4a, aes(x=Treatment,y=avg,fill=Treatment)) +
+  geom_bar(stat="identity",position="dodge", color= "black", width=.5)+
+  geom_text(aes(y=upper, label=round(avg,3)), position=position_dodge(width=0.9), vjust=-.75)+  
+  labs(y="Question Rate",x="Simple Question",title="A")+
+  scale_fill_manual(values=c("grey","white")) +  
+  scale_y_continuous(breaks=c(0,.1,.2,.3,.4,.5),label=c(0,.1,.2,.3,.4,.5),limits=c(0,.5))+ 
+  theme_minimal()+
+  theme(text = element_text(size=12),
+        axis.text.x=element_blank(), axis.ticks.x=element_blank()) 
+
+####Figure in Panel B
+fig4b <- ggplot(figure4b, aes(x=Treatment,y=avg,fill=Treatment)) +
+  geom_bar(stat="identity",position="dodge", color= "black", width=.5)+
+  geom_text(aes(y=upper, label=round(avg,3)), position=position_dodge(width=0.9), vjust=-.75)+  
+  labs(y="",x="Complex Question",title="B")+
+  scale_fill_manual(values=c("grey","white")) +  
+  scale_y_continuous(breaks=c(0,.1,.2,.3,.4,.5),label=c(0,.1,.2,.3,.4,.5),limits=c(0,.5))+ 
+  theme_minimal()+
+  theme(text = element_text(size=12),legend.position="none",
+        axis.text.x=element_blank(), axis.ticks.x=element_blank()) 
+
+####Figure in Panel C
+fig4c <- ggplot(figure4c, aes(x=Treatment,y=avg,fill=Treatment)) +
+  geom_bar(stat="identity",position="dodge", color= "black", width=.5)+
+  geom_text(aes(y=upper, label=round(avg,3)), position=position_dodge(width=0.9), vjust=-.75)+  
+  labs(y="Request Rate",x="Request a Phone Call",title="C")+
+  scale_fill_manual(values=c("grey","white")) +  
+  scale_y_continuous(breaks=c(0,.1,.2,.3,.4,.5),label=c(0,.1,.2,.3,.4,.5),limits=c(0,.5))+ 
+  theme_minimal()+
+  theme(text = element_text(size=12),legend.position="none",
+        axis.text.x=element_blank(), axis.ticks.x=element_blank()) 
+
+####Figure in Panel D
+fig4d <- ggplot(figure4d, aes(x=Treatment,y=avg,fill=Treatment)) +
+  geom_bar(stat="identity",position="dodge", color= "black", width=.5)+
+  geom_text(aes(y=upper, label=round(avg,3)), position=position_dodge(width=0.9), vjust=-.75)+  
+  labs(y="",x="Request to Meet",title="D")+
+  scale_fill_manual(values=c("grey","white")) +  
+  scale_y_continuous(breaks=c(0,.1,.2,.3,.4,.5),label=c(0,.1,.2,.3,.4,.5),limits=c(0,.5))+ 
+  theme_minimal()+
+  theme(text = element_text(size=12),legend.position="none",
+        axis.text.x=element_blank(), axis.ticks.x=element_blank()) 
+
+#get common legend
+legend <- get_legend(fig4a)
+fig4a <- fig4a + theme(text = element_text(size=12),legend.position="none",axis.text.x=element_blank()) 
+
+#Save figure 4 a PNG
+fig4 <- grid.arrange(fig4a, fig4b, fig4c, fig4d, legend, widths=c(2, 2, 2, 2, 1), top=textGrob("Compliance cost rate based on each treatment", gp=gpar(fontsize=15,font=8)))
+ggsave(file = "replicated_figure2.png",fig4,path = "outputs/models",width=8,height=4,scale=1)
 ##############
 #END OF SCRIPT
 ##############
