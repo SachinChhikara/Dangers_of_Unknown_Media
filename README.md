@@ -1,10 +1,14 @@
-# Starter folder
+# administrative_discrimination_analysis
 
 ## Overview
 
-This repo provides students with a foundation for their own projects associated with *Telling Stories with Data*. You do not need every aspect for every paper and you should delete aspects that you do not need.
+This repo features a reproduction of Asmus Leth Olsen, Jonas Høgh Kyhse-Andersen, Donald Moynihan's paper, [**`The Unequal Distribution of Opportunity: A National Audit Study of Bureaucratic Discrimination in Primary School Access`**]( https://doi.org/10.1111/ajps.12584),. 
 
-To use this folder, click the green "Code" button", then "Download ZIP". Move the downloaded folder to where you want to work on your own computer, and then modify it to suit.
+A replication using the Social Science Reproduction Platform was also produced: 
+<https://www.socialsciencereproduction.org/reproductions/b5ba971d-4eee-4a10-8225-4c7d7654d5e0/index>
+
+Aspects of the code were written with the help of the ChatGPT 3.5,the entire chat history is 
+available in `inputs/llms/usage.txt`.
 
 ## File Structure
 
