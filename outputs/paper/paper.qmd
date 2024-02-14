@@ -1,14 +1,14 @@
 ---
 title: "Bureaucratic discrimination stemming from Islamophobia needs to be highlighted"
-subtitle: "My subtitle if needed"
 author: 
   - First author
   - Another author
-thanks: "Code and data are available at: LINK."
+thanks: "Code and data are available at: https://github.com/SachinChhikara/administrative_discrimination_analysis.git"
 date: today
 date-format: long
 abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
 format: pdf
+toc: true
 number-sections: true
 bibliography: references.bib
 ---
@@ -19,7 +19,8 @@ bibliography: references.bib
 #| message: false
 
 library(tidyverse)
-library(palmerpenguins)
+library(knitr)
+library(flextable)
 ```
 
 # Introduction
@@ -28,22 +29,19 @@ From the past to the present, bureaucracy has been a characteristic predominantl
 
 The original study, “The Unequal Distribution of Opportunity: A National Audit Study of Bureaucratic Discrimination in Primary School Acces (2020) by Olsen, Kyhse-Anderson, Moynihan”, experimented with the unequal opportunities brought about by bureaucratic discrimination in Danish primary schools.Before the experiment, Olsen, Kyhse-Anderson, Moynihan defined bureaucratic discrimination as two forms: either through withholding opportunities in service or imposing administrative burdens to make bureaucratic procedures more complex and difficult. As a result, the original study revealed that individuals with Muslim names experience both forms of bureaucratic discrimination more frequently than those with native (Danish) names.
 
-Our paper will reproduce these findings and will focus on the potential administrative discrimination against Muslims in Canada by building on the two forms of administrative discrimination (1. withholding opportunities in service, 2. imposing administrative burdens to make bureaucratic procedures more complex and difficult). Through the original experiment’s results, we discovered that administrative discrimination against Muslims could be driven by Islamophobic attitudes. Based on the two forms of bureaucratic discrimination defined in the original experiment, our study aims to assess perceptions of Muslims in Canada and discuss the potential for widespread administrative discrimination against Muslims.
-
-\newpage
+Our paper will reproduce these findings and will focus on the potential administrative discrimination against Muslims in Canada by building on the two forms of administrative discrimination (1.Withholding opportunities in service, 2.Imposing administrative burdens to make bureaucratic procedures more complex and difficult). Through the original experiment’s results, we discovered that administrative discrimination against Muslims could be driven by Islamophobic attitudes. Based on the two forms of bureaucratic discrimination defined in the original experiment, our study aims to assess perceptions about Muslims in Canada and discuss the potential for widespread administrative discrimination against Muslims.
 
 # Data {#sec-data}
 
 ## Source
 
-This paper reproduces two results from "The Unequal Distribution of Opportunity: A National Audit Study of Bureaucratic Discrimination in Primary School Access(2020) by Olsen, Kyhse-Anderson, Moyni-han" in the American Journal of Social Science.
-In the original study, the results showed disparities in decision type rates, compliance cost rates, and psychological cost rates between Muslim and Danish. 
-For the decision type, response emails were classified into three categories: clear reject, unclear response, and clear accept.(Examples 1-4 in Appendix A illustrate unclear responses)
-Also, for compliance cost, it was categorized into four groups based on the format of the email content: simple question, complex question, request a phone call, and request to meet. Since the difference of decision type rates and compliance cost rates between Danish and Muslim represent two forms of administrative discrimination mentioned above, our study will also verify these two sets of results and discuss the potential administrative discrimination against Muslims in Canada.
+This paper reproduces two results from "The Unequal Distribution of Opportunity: A National Audit Study of Bureaucratic Discrimination in Primary School Access(2020) by Olsen, Kyhse-Anderson, Moynihan" in the American Journal of Social Science. Our study mainly focuses on the findings whether 1) Muslim gets withdrawn from the public service more frequently 2) Muslims gets the the administrative burdens more often than Danish. In the original study, the results showed disparities in decision type rates, compliance cost rates, and psychological cost rates between Muslim and Danish. For the decision type, response emails were classified into three categories: clear reject, unclear response, and clear accept. Also, for compliance cost, it was categorized into four groups based on the format of the email content: simple question, complex question, request a phone call, and request to meet. Since the difference of decision type rates and compliance cost rates between Danish and Muslim represent two forms of administrative discrimination mentioned above, our study will also verify these two sets of results and discuss the potential administrative discrimination against Muslims in Canada.
 
 ## Methodology
 
 The original experiment was conducted with 1,698 primary schools in Denmark, where fictitious emails regarding student transfer requests were sent to each school. These emails were sent under different names (Muslim/Danish), with 850 emails sent under one name and 848 under the other. Fictitious students were also assigned diligence traits, which could be discerned from the content of the emails (Overview of Senders’ and Respondents’ traits). Additionally, the original study examined both the characteristics of the schools and those of the senders. The characteristics of the schools (whether the school is located in a major city, its geographical region, the average student grades, the number of students, the number of non-Danish students, and the school type.) were investigated using the Danish Ministry of Education database, while the characteristics of the senders were determined based on the content of the response emails.
+
+### Senders and Respondents'(schools) trait
 
 [***Senders trait***]{.underline}
 
@@ -77,24 +75,70 @@ The original experiment was conducted with 1,698 primary schools in Denmark, whe
 
 -   **Average Grade of Students**
 
+### Measurement for administrative discrimination
 
+-   ***Type of Administrative Discrimination***
+
+    -   [**Withdrawing Opportunity**]{.underline}
+
+        Categorizing receiving emails by 3 categories
+
+        1.  Clear Reject
+        2.  Unclear Response
+        3.  Clear Acceptance
+
+        [**Giving administrative burdens**]{.underline}
+
+        Categorizing receiving emails by 4 categories
+
+        1.  Simple Question
+        2.  Complex Question
+        3.  Request a Phone call
+        4.  Request to meet
 
 ### Effect of Senders and Respondents' trait
+
 Lastly, the original study revealed through the full ordinary least squares (OLS) results that neither the diligence trait nor the characteristics of schools have any influence on the outcome variables (decision type, compliance cost). Consequently, apart from racial characteristics based on two different names, no other traits will be mentioned in this paper.
 
+\newpage
 # Results
 
-Our results are summarized in @tbl-modelresults.
+## Decision type rate
+
+```{r}
+#| echo: false
+#| eval: true
+#| warning: false
+#| message: false
+#| label: fig-decision_type
+#| fig-cap: "Decision type rate based on each treatment"
+knitr::include_graphics(file.path(here::here(),"outputs/models/replicated_figure.png")) 
+```
+
+@fig-decision_type illustrates the decision type rate of schools based on two ethnic groups (Danish/Muslim). As evident from the figures, Muslims received approximately 7.4% more clear admission rejections compared to Danes, and unclear responses were also approximately 2.4% higher for Muslims. In contrast, for clear admission acceptance, Danes were approximately 9.8% higher. The higher rate of clear rejections for Muslims compared to Danes demonstrates one form of administrative discrimination, where individuals are initially deprived of opportunities. Conversely, the higher rate of clear admission approvals for Danes compared to Muslims also signifies receiving fewer opportunities in education, a public service, indicating exclusion of Muslims as recipients of public service opportunities due to the first form of administrative discrimination.
+
+## Compliance Cost rate
+
+```{r}
+#| echo: false
+#| eval: true
+#| warning: false
+#| message: false
+#| label: fig-compliance_cost
+#| fig-cap: "Compliance cost rate based on each treatment"
+knitr::include_graphics(file.path(here::here(),"outputs/models/replicated_figure2.png")) 
+```
+
+@fig-compliance_cost displays the compliance cost rate between each ethnic group. Muslims showed higher frequencies in both simple and complex questions, with 8.5% and 0.5% more, respectively. This indicates that Muslims are subjected to discrimination in the form of imposing administrative burdens. Regarding the request for meetings, there was not a significant difference between the two racial groups. However, in contrast to simple and complex questions, Danish individuals showed a 14% higher rate of requesting phone calls. According to the interpretation of the original study results, administrative officers responsible for admissions utilized phone calls as an informal verification method, indicating higher social trust towards Danes. Therefore, the higher rate of phone call requests for Danes does not represent compliance costs but rather reflects higher social trust towards Danes, highlighting administrative discrimination against Muslims.
 
 # Discussion
 
-## First discussion point {#sec-first-point}
+## Perception about Muslims in Canada and Potential Administrative Discrimination againt them  {#sec-first-point}
 
 If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this.
 
-## Second discussion point
-
-## Third discussion point
+## Ethical Reflection
+aaa
 
 ## Weaknesses and next steps
 
@@ -103,3 +147,7 @@ Weaknesses and next steps should also be included.
 \newpage
 
 # References
+
+---
+nocite: '@*'
+---
