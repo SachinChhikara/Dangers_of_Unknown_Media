@@ -36,7 +36,7 @@ library(grid)
 setwd(dirname(rstudioapi::getSourceEditorContext()$path))
 
 #load data for main analysis
-load("inputs/data/df1.rda")
+load("df1.rda")
 
 ##########################################################
 # Facts in section 'Abstract' & 'Introduction'
