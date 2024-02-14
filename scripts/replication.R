@@ -78,7 +78,7 @@ for (i in 1:length(df1$treatments)) {
 }
 
 #Means for all outcomes for each of the four conditions
-table7 <-  df1 %>% 
+table3 <-  df1 %>% 
   dplyr::group_by(treatments)%>% 
   dplyr::summarise_at(vars(resp_true,reject1,unclear1,accept1, 
                            simple_q,complex_q,contact_q,meeting_q,
@@ -90,14 +90,21 @@ table7 <-  df1 %>%
 count_of_private <- sum(df1$school_type==0)
 count_of_public <- sum(df1$school_type==1)
 
+
+
+##############################################################
+#Figure 3:Reponse Rate by Treatments
+##############################################################
+
+
+#using CLT, since our n is large( n > 30), we approximate the distribution to Normal
+#95% condifence interval
 response <- df1 %>% 
   dplyr::group_by(t_mohammad) %>%
   dplyr::summarise_at(vars(resp_true), 
                       list(mean = ~ round(mean(.), 2),
                            sd = ~ round(sd(.), 2)))
 
-#using CLT, since our n is large( n > 30), we approximate the distribution to Normal
-#95% condifence interval
 
 calculate_CI <- function(mean, sd, df) {
   alpha <- 1 - 0.95
@@ -122,19 +129,21 @@ danish_CI <- calculate_CI(mean_danish, sd_danish, df_danish)
 
 # Create a data frame for the mean and confidence intervals
 data <- data.frame(
-  group = c("Muslim", "Danish"),
+  Ethnicity = c("Muslim", "Danish"),
   mean = c(mean_muslim, mean_danish),
   lower = c(muslim_CI[1], danish_CI[1]),
   upper = c(muslim_CI[2], danish_CI[2])
 )
 
 # Create the bar plot with error bars
-ggplot(data, aes(x = group, y = mean, fill = group)) +
+ggplot(data, aes(x = Ethnicity, y = mean, fill = Ethnicity)) +
   geom_bar(stat = "identity", position = "dodge") +
   geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.2, position = position_dodge(width = 0.9)) +
-  labs(title = "Figure 2 Response Rate by Ethicity",
-       x = "Group",
-       y = "Mean") +
+  geom_text(aes(y=upper, label= upper), position=position_dodge(width=0.9), vjust=-.70)+
+  geom_text(aes(y=lower, label= lower), position=position_dodge(width=0.9), vjust=1.25)+
+  labs(title = "Figure 2 Response Rate by Ethnicity",
+       x = "Ethnicity",
+       y = "Mean of Response Rate") +
   theme_minimal()
 
 
