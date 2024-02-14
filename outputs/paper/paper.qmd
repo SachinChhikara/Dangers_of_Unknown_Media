@@ -1,5 +1,5 @@
 ---
-title: "My title"
+title: "Bureaucratic discrimination stemming from Islamophobia needs to be highlighted"
 subtitle: "My subtitle if needed"
 author: 
   - First author
@@ -24,29 +24,26 @@ library(palmerpenguins)
 
 # Introduction
 
-You can and should cross-reference sections and sub-sections.
+From the past to the present, bureaucracy has been a characteristic predominantly found in large companies or public institutions. With the nature of bureaucracy, specific individuals or groups within an organization tend to hold the authority to make most administrative decisions, which can result in administrative discrimination stemming from subjective or group opinions or beliefs influencing administrative decisions.
 
-The remainder of this paper is structured as follows. @sec-data.... \newpage
+The original study, “The Unequal Distribution of Opportunity: A National Audit Study of Bureaucratic Discrimination in Primary School Acces (2020) by Olsen, Kyhse-Anderson, Moynihan”, experimented with the unequal opportunities brought about by bureaucratic discrimination in Danish primary schools. Before the experiment, Olsen, Kyhse-Anderson, Moynihan defined bureaucratic discrimination as two forms: either through withholding opportunities in service or imposing administrative burdens to make bureaucratic procedures more complex and difficult. As a result, the original study revealed that individuals with Muslim names experience both forms of bureaucratic discrimination more frequently than those with native (Danish) names.
+
+Our paper will reproduce these findings and will focus on the potential administrative discrimination against Muslims in Canada by building on the two forms of administrative discrimination (1. withholding opportunities in service, 2. imposing administrative burdens to make bureaucratic procedures more complex and difficult) Through the original experiment’s results, we discovered that administrative discrimination against Muslims could be driven by Islamophobic attitudes. Based on the two forms of bureaucratic discrimination defined in the original experiment, our study aims to assess perceptions of Muslims in Canada and discuss the potential for widespread administrative discrimination against Muslims.
+
+\newpage
 
 # Data {#sec-data}
 
 ## Source
 
-The original paper, "The Unequal Distribution of Opportunity: A National Audit Study of Bureaucratic Discrimination in Primary School Access(2020) by Olsen, Kyhse-Anderson, Moynihan", was replicated from American Journal of Social Science.
+This paper reproduces two results from "The Unequal Distribution of Opportunity: A National Audit Study of Bureaucratic Discrimination in Primary School Access(2020) by Olsen, Kyhse-Anderson, Moyni-han" in the American Journal of Social Science.
+In the original study, the results showed disparities in decision type rates, compliance cost rates, and psychological cost rates. 
+For the decision type, response emails were classified into three categories: clear reject, unclear response, and clear accept.(Examples 1-4 in Appendix A illustrate unclear responses)
+As for compliance cost, it was categorized into four groups based on the format of the email content: simple question, complex question, request a phone call, and request to meet. Since decision type rates and compliance cost rates represent two forms of administrative discrimination above, our study will also verify these two sets of results and discuss the potential administrative discrimination against Muslims in Canada.
 
-@fig-decision_rate1 is one of the results in the original study, and it shows the decision type rate based on the different treatments (Muslim/Danish). In addition to the results depicted in @fig-decision_rate1, we proceeded the analysis by incorporating new variables, namely the characteristics of schools.
+## Methodology
 
-```{r}
-#| echo: false
-#| label: fig-decision_rate1
-#| message: false
-#| fig-cap: Decision type rate based on each treatment
-knitr::include_graphics(file.path(here::here(),"outputs/models/replicated_figure.png"))
-```
-
-## Overview of Senders and Respondents' traits
-
-In the original experiment, the designed sender attributes consist of two categories: names (Muslim and Danish names) and the Diligence trait. Also, the respondent schools are classified based on six characteristics: whether the school is located in a major city, its geographical region, the average student grades, the number of students, the number of non-Danish students, and the school type. Theses school characteristics were investigated through the Danish Ministry of Education database in the original study. Below is a summary.
+The original experiment was conducted with 1,698 primary schools in Denmark, where fictitious emails regarding student transfer requests were sent to each school. These emails were sent under different names (Muslim/Danish), with 850 emails sent under one name and 848 under the other. Fictitious students were also assigned diligence traits, which could be discerned from the content of the emails (Overview of Senders’ and Respondents’ traits). Additionally, the original study examined both the characteristics of the schools and those of the senders. The characteristics of the schools (whether the school is located in a major city, its geographical region, the average student grades, the number of students, the number of non-Danish students, and the school type.) were investigated using the Danish Ministry of Education database, while the characteristics of the senders were determined based on the content of the response emails.
 
 [***Senders trait***]{.underline}
 
@@ -80,21 +77,10 @@ In the original experiment, the designed sender attributes consist of two catego
 
 -   **Average Grade of Students**
 
-## Methodology
 
-As mentioned above, this paper examines how the characteristics of schools, in addition to the original experiment's results for decision type rates, impact Muslim's admission to private schools in Denmark. The following subsection will provide detailed explanations of how and why each piece of data was used or not.
 
-### Decision type
-
-As shown on @fig-decision_rate1, in the original study, the schools' responses were categorized into three decision types: clear rejection, unclear response and clear acceptance. According to the study, two coders categorized each response email into these three decision types, and the responses categorized by two coders were denoted by response1 and response2. As a result, the Cronbach's alpha analysis revealed minimal difference in perception between the two coders regarding the response emails. Therefore, in this paper, only Response type 1 is used, and the they are denoted as reject1, unclear1, accept1 in the data set.
-
-### Using Senders and Respondents' traits
-
-Followed by the Senders and Respondents' trait above, the original study also investigated whether each school is above the median level of trait(Number of Students, Number of Non-Danish Students and Students' grade). Based on this examination, this study examined how schools with above-median and below-median traits influence the decision type rate through proportional contrasts. Additionally, the impact of school location and school type on Muslim's decision type rate will be investigated.
-
-### Not using Diligence trait
-
-Finally, diligence trait is excluded from this study. This decision is based on the original research, which revealed through the full ordinary least square(OLS) results that diligence traits do not have any effect on outcome variables such as response rate or the decision to accept or reject students.
+### Effect of Senders and Respondents' trait
+Lastly, the original study revealed through the full ordinary least squares (OLS) results that neither the diligence trait nor the characteristics of schools have any influence on the outcome variables (decision type, compliance cost). Consequently, apart from racial characteristics based on two different names, no other traits will be mentioned in this paper.
 
 # Results
 
