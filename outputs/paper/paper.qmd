@@ -9,7 +9,7 @@ date: today
 date-format: long
 abstract: "Bureaucratic discrimination is an ongoing problem on a global scale where people in power engage in discrimination for various reasons. This paper analyzes administrative discrimination and burdening faced by Muslim pupils interested in enrolling in a public school by emailing the school under a Muslim and Danish name and noting differences in the responses by administrative staff. We find that Muslims face more burdens than Danes and do not receive a clear acceptance into the school as often as the Danes. From these findings, further research should be aimed at minimizing administrative discrimination against Muslims not only in school admissions but also in other areas of public services."
 format: pdf
-toc: true
+toc: false
 number-sections: true
 bibliography: references.bib
 ---
@@ -44,10 +44,10 @@ This paper reproduces two results from "The Unequal Distribution of Opportunity:
 
 ## Methodology
 
-The original experiment was conducted with 1,698 primary schools in Denmark, where fictitious emails regarding student transfer requests were sent to each school. These emails were sent under different names (Muslim/Danish), with 850 emails sent under one name and 848 under the other. Fictitious students were also assigned diligence traits, which could be discerned from the content of the emails (Overview of Senders’ and Respondents’ traits). Additionally, the original study examined both the characteristics of the schools and those of the senders. The characteristics of the schools (whether the school is located in a major city, its geographical region, the average student grades, the number of students, the number of non-Danish students, and the school type.) were investigated using the Danish Ministry of Education database, while the characteristics of the senders were determined based on the content of the response emails.
+The original experiment was conducted with 1,698 primary schools in Denmark, where fictitious emails regarding student transfer requests were sent to each school. These emails were sent under different names (Muslim/Danish), with 850 emails sent under one name and 848 under the other. Fictitious students were also assigned diligence traits, which could be discerned from the content of the emails (See Section 2.2.1). Additionally, the original study examined both the characteristics of the schools and those of the senders. The characteristics of the schools (whether the school is located in a major city, its geographical region, the average student grades, the number of students, the number of non-Danish students, and the school type.) were investigated using the Danish Ministry of Education database, while the characteristics of the senders were determined based on the content of the response emails.
 Furthermore, email responses to transfer requests received from schools were measured in terms of decision type rate, compliance cost rate, and psychological cost rate for each ethnicity (Danish/Muslim), depending on the content of the email. For the decision type, response emails were classified into three categories: clear reject, unclear response, and clear accept. Also, for compliance cost, it was categorized into four groups based on the format of the email content: simple question, complex question, request a phone call, and request to meet. Since the difference of decision type rates and compliance cost rates between Danish and Muslim represent two forms of administrative discrimination mentioned above, our study will verify these two sets of results and discuss the potential administrative discrimination against Muslims in Canada.
 
-### Senders and Respondents'(schools) trait
+### Senders and Respondents' (Schools) trait {#sec-traits}
 
 [***Senders trait***]{.underline}
 
