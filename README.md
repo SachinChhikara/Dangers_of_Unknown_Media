@@ -1,16 +1,28 @@
-# Starter folder
+# Bureaucratic discrimination stemming from Islamophobia needs to be highlighted
 
 ## Overview
 
-This repo provides students with a foundation for their own projects associated with *Telling Stories with Data*. You do not need every aspect for every paper and you should delete aspects that you do not need.
+This repo features a reproduction of Asmus Leth Olsen, Jonas Høgh Kyhse-Andersen, Donald Moynihan's paper, [**`The Unequal Distribution of Opportunity: A National Audit Study of Bureaucratic Discrimination in Primary School Access`**](https://doi.org/10.1111/ajps.12584),.
 
-To use this folder, click the green "Code" button", then "Download ZIP". Move the downloaded folder to where you want to work on your own computer, and then modify it to suit.
+A replication using the Social Science Reproduction Platform was also produced: <https://www.socialsciencereproduction.org/reproductions/b5ba971d-4eee-4a10-8225-4c7d7654d5e0/index>
 
-## File Structure
+Aspects of the code were written with the help of the ChatGPT 3.5,the entire chat history is available in `inputs/llms/usage.txt`.
+
+Our study:
+
+We aim to focus on two forms of administrative discrimination against Muslims in primary school in Denmark found in the original paper. By analyzing and verifying the administrative discrimination against Muslims in Danish primary school, the potential administrative discrimination against Muslims in Canada to access the public services is discussed.
+
+## Link to Replication through SSRP (Social Science Replication Platform)
+
+<https://www.socialsciencereproduction.org/reproductions/b5ba971d-4eee-4a10-8225-4c7d7654d5e0/index>
+
+## FIle Structure
 
 The repo is structured as:
 
--   `input/data` contains the data sources used in analysis including the raw data.
--   `outputs/data` contains the cleaned dataset that was constructed.
--   `outputs/paper` contains the files used to generate the paper, including the Quarto document and reference bibliography file, as well as the PDF of the paper. 
--   `scripts` contains the R scripts used to simulate, download and clean data.
+-   `inputs/data` contains the cleaned data 'df1.rda' replicated from the reproduction package of the original paper
+-   `inputs/llm`
+-   `inputs/sketches` contains raw sketches of overview of graph and tables
+-   `outputs/models` includes two png files (images) representing replication of two bar graphs from the original study
+-   `outputs/paper` includes quarto document used for generating pdf version of the paper, and the reference lists are included in 'references.bib'
+-   `scripts` contains several R-scripts that are used for simulation, test and replication
