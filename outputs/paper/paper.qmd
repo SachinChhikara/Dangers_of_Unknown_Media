@@ -1,13 +1,13 @@
 ---
-title: "Bureaucratic discrimination stemming from Islamophobia needs to be highlighted"
+title: "Muslims face more administrative burdens than Danes: Bureaucratic discrimination stemming from Islamophobia needs to be highlighted"
 author: 
   - Fares Alkorani
   - Kyungrok Park 
   - Sachin Chihikara
-thanks: "Code and data are available at: https://github.com/SachinChhikara/administrative_discrimination_analysis.git"
+thanks: "Code and data are available at: https://github.com/SachinChhikara/administrative_discrimination_analysis.git; Replication on Social Science Reproductions platform is available at: https://doi.org/10.48152/ssrp-ep28-1y61."
 date: today
 date-format: long
-abstract: "First sentence. Second sentence. Third sentence. Fourth sentence."
+abstract: "Bureaucratic discrimination is an ongoing problem on a global scale where people in power engage in discrimination for various reasons. This paper analyzes administrative discrimination and burdening faced by Muslim pupils interested in enrolling in a public school by emailing the school under a Muslim and Danish name and noting differences in the responses by administrative staff. We find that Muslims face more burdens than Danes and do not receive a clear acceptance into the school as often as the Danes. From these findings, further research should be aimed at minimizing administrative discrimination against Muslims not only in school admissions but also in other areas of public services."
 format: pdf
 toc: true
 number-sections: true
@@ -25,13 +25,13 @@ library(knitr)
 
 # Introduction
 
-From the past to the present, bureaucracy has been a characteristic predominantly found in large companies or public institutions. With the nature of bureaucracy, specific individuals or groups within an organization tend to hold the authority to make most administrative decisions, which can result in administrative discrimination stemming from subjective or group opinions or beliefs influencing administrative decisions.
+From the past to the present, bureaucracy has been a characteristic predominantly found in large companies or public institutions. With the nature of bureaucracy, specific individuals or groups within an organization tend to hold the authority to make most administrative decisions, which can result in administrative discrimination stemming from group opinions or beliefs influencing administrative decisions.
 
 The original study, “The Unequal Distribution of Opportunity: A National Audit Study of Bureaucratic Discrimination in Primary School Acces (2020) by Olsen, Kyhse-Anderson, Moynihan”, experimented with the unequal opportunities brought about by bureaucratic discrimination in Danish primary schools. Before the experiment, Olsen, Kyhse-Anderson, Moynihan defined bureaucratic discrimination as two forms: either through withholding opportunities in service or imposing administrative burdens to make bureaucratic procedures more complex and difficult. As a result, the original study revealed that individuals with Muslim names experience both forms of bureaucratic discrimination more frequently than those with native (Danish) names.
 
-Our paper will reproduce these findings and will focus on the potential administrative discrimination against Muslims in Canada by building on the two forms of administrative discrimination (1.Withholding opportunities in service, 2.Imposing administrative burdens to make bureaucratic procedures more complex and difficult).
-Thus, the estimand for our research will be the effect of being Muslims to get admitted to the private school in Denmark (Broadly effect of being Muslims to access the public service) . 
-Through the original experiment’s results, we discovered that administrative discrimination against Muslims could be driven by Islamophobic attitudes. Based on the two forms of bureaucratic discrimination defined in the original experiment, our study aims to assess perceptions about Muslims in Canada and discuss the potential for widespread administrative discrimination against Muslims.
+Our paper will reproduce these findings and will focus on the potential administrative discrimination against Muslims in Canada by building on the two forms of administrative discrimination. This includes 1) withholding opportunities in service and 2) imposing administrative burdens to make bureaucratic procedures more complex and difficult.
+Thus, the estimand for our research will be measuring the effect of being Muslim to receiving admission to the primary school in Denmark (broad effect would be analyzing the degree to which Muslims can access public services). 
+Through the results of the original experiment, we discovered that administrative discrimination against Muslims could be driven by Islamophobic attitudes. Based on the two forms of bureaucratic discrimination defined in the original experiment, our study aims to assess perceptions about Muslims in Canada and discuss the potential for widespread administrative discrimination against Muslims.
 In our study, the statistical programming language R software (R Core Team, 2023) was used for replication purposes. Additional packages, tidyverse (Wickham et al.2019), knitr(Xie 2014), ltm(Rizopoulos 2006), grindExtra(Auguie 2017), estimatr, texreg(Leifeld 2013), scales(Wickham et al. 2023), cowplot(O. Wilke 2024), ggplot2 (Wickham 2016) and here(Müller 2020) were also utilized for our further analysis and reproduction. 
 
 This paper is organized into 4 sections: Introduction, Data, Results and Discussion. The Data section provides a description of the variables and experimental setup used in the original paper, including how administrative discrimination was measured. The Results section cites two graphs from the original paper to reaffirm the existence of administrative discrimination against Muslims in Denmark. Finally, in the Discussion section, it is asserted that such administrative discrimination may occur or is occurring in Canada, leveraging Islamophobic sentiments or perceptions of Muslims.
@@ -153,13 +153,13 @@ However, more research is needed to assess the unequal opportunities faced by Mu
 
 ## Ethical Reflection
 
-In this paper, Olsen, Kyhse-Andersen, and Moynihan discuss the ethical significance of field experiments. However, they noted that they must proceed with this study given the policy importance that comes with understanding the barriers to school transfer for Muslim pupils in the Danish schools (CITATION). In addition, to minimize risk, the authors anonymized individual responses in the replication data and communicated the results of the study to the Danish school administrators and relevant parties.
+In this paper, Olsen, Kyhse-Andersen, and Moynihan discuss the ethical significance of field experiments. However, they noted that they must proceed with this study given the policy importance that comes with understanding the barriers to school transfer for Muslim pupils in the Danish schools [@originalpaper]. In addition, to minimize risk, the authors anonymized individual responses in the replication data and communicated the results of the study to the Danish school administrators and relevant parties.
 
 ## Limitations
 
-First, as stated in the original paper, 'the interaction with bureaucrats was limited to an initial response', meaning that it is unknown whether the bureaucrats would have accepted or declined a student in the unclear response case (CITATION). While the authors believe the evidence they have lends little support to this possibility, it may significantly skew the distribution of clear acceptances and clear rejections to communicate more substantiated findings.
+First, as stated in the original paper, 'the interaction with bureaucrats was limited to an initial response', meaning that it is unknown whether the bureaucrats would have accepted or declined a student in the unclear response case [@originalpaper]. While the authors believe the evidence they have lends little support to this possibility, it may significantly skew the distribution of clear acceptances and clear rejections to communicate more substantiated findings.
 
-Second, there were more variables documented with respect to each email that was sent to a school, but were delinked with respect to the original email that was sent to a school to be compliant with GDPR in a Danish context (CITATION). These variables included information about the email responder (gender, administrative status, whether they are Muslim or Danish) and information regarding the school (number of students enrolled, average grades of students enrolled, and the proportion of non-Danish students in the school). With this information being linked to the data set, more thorough analysis could have been conducted to unravel hidden trends in the discrimination with respect to Muslim admission in Denmark public schools.
+Second, there were more variables documented with respect to each email that was sent to a school, but were delinked with respect to the original email that was sent to a school to be compliant with GDPR in a Danish context [@originalpaper]. These variables included information about the email responder (gender, administrative status, whether they are Muslim or Danish) and information regarding the school (number of students enrolled, average grades of students enrolled, and the proportion of non-Danish students in the school). With this information being linked to the data set, more thorough analysis could have been conducted to unravel hidden trends in the discrimination with respect to Muslim admission in Denmark public schools.
 
 ## Future Research
 
