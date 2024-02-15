@@ -40,7 +40,7 @@ This paper is organized into 4 sections: Introduction, Data, Results and Discuss
 
 ## Source
 
-This paper reproduces two results from "The Unequal Distribution of Opportunity: A National Audit Study of Bureaucratic Discrimination in Primary School Access(2020) by Olsen, Kyhse-Anderson, Moynihan" in the American Journal of Social Science. Our study mainly focuses on the findings whether 1) Muslim gets withdrawn from the public service more frequently 2) Muslims gets the administrative burdens more often than Danish.
+This paper reproduces two results from "The Unequal Distribution of Opportunity: A National Audit Study of Bureaucratic Discrimination in Primary School Access (2020) by Olsen, Kyhse-Anderson, Moynihan" in the American Journal of Social Science. Our study mainly focuses on the findings whether 1) Muslim gets withdrawn from the public service more frequently 2) Muslims gets the administrative burdens more often than Danish.
 
 ## Methodology
 
@@ -138,11 +138,12 @@ knitr::include_graphics(file.path(here::here(),"outputs/models/replicated_figure
 
 # Discussion
 
-## Perception about Muslims in Canada and Potential Administrative Discrimination againt them  {#sec-first-point}
+## Perception about Muslims in Canada and Potential Administrative Discrimination against Them  {#sec-first-point}
 
 Canada is not new to Islamophobic attitudes and so, it is worth exploring the results of this study and their implications with respect to Canada, especially Quebec.
 
 Bill 21, a bill passed in Quebec, bars public school teachers, police officers, judges and government lawyers, among other civil servants in positions of authority, from wearing religious symbols — such as hijab, crucifixes or turbans — while at work. According to CBC news, this bill has negatively impacted Muslim women the most. The article goes to state that a Muslim teacher lost her job for not following this rule and law which tend further hatred towards Muslims. Muslim women have experience insults such as "dirty immigrants", "These Muslim women with rags on their heads, if they are not able to integrate, let them return to their country". Furthermore, CBC reports that 47% of Muslim women reported to treated unfairly by a person in authority. (Rukavina 2022) 
+
 More generally, the general perception towards Muslims in Canada is not favorable as shown in a study conducted by Angus Reid Institute, revealing that 52% of Quebec and 39% rest of Canada view the religion of Islam in an unfavorable manner. 
 This study proceeds to suggest that there some correlation between age and education when comes to the discrimination. Those who very negatively view of Muslims tend to be more older and half of them have high school diploma or less. In contrast, younger Canadians tend to have a very positive view towards Muslims and those who have a post-secondary education. 
 Since, in 2005, it was revealed that 57% of Canadian school principals were over the age of 50 years of age or older (Blouin 2005) and by the Canadian Education Act, "each school principal has the drastic power to refuse to admit to school any person whose presence in the school or classroom would in the principal's judgment be detrimental to the physical or mental well-being of the pupils" (AODA 2020), it is unsurprising to imagine how many Canadian Muslim pupils may have been rejected admission from a school strictly on the basis of their religion, in a similar fashion to the Muslim Danish pupils studied in this paper. 
@@ -151,11 +152,18 @@ However, more research is needed to assess the unequal opportunities faced by Mu
 
 
 ## Ethical Reflection
-aaa
 
-## Weaknesses and next steps
+In this paper, Olsen, Kyhse-Andersen, and Moynihan discuss the ethical significance of field experiments. However, they noted that they must proceed with this study given the policy importance that comes with understanding the barriers to school transfer for Muslim pupils in the Danish schools (CITATION). In addition, to minimize risk, the authors anonymized individual responses in the replication data and communicated the results of the study to the Danish school administrators and relevant parties.
 
-Weaknesses and next steps should also be included.
+## Limitations
+
+First, as stated in the original paper, 'the interaction with bureaucrats was limited to an initial response', meaning that it is unknown whether the bureaucrats would have accepted or declined a student in the unclear response case (CITATION). While the authors believe the evidence they have lends little support to this possibility, it may significantly skew the distribution of clear acceptances and clear rejections to communicate more substantiated findings.
+
+Second, there were more variables documented with respect to each email that was sent to a school, but were delinked with respect to the original email that was sent to a school to be compliant with GDPR in a Danish context (CITATION). These variables included information about the email responder (gender, administrative status, whether they are Muslim or Danish) and information regarding the school (number of students enrolled, average grades of students enrolled, and the proportion of non-Danish students in the school). With this information being linked to the data set, more thorough analysis could have been conducted to unravel hidden trends in the discrimination with respect to Muslim admission in Denmark public schools.
+
+## Future Research
+
+First, where possible, this experiment can be reconducted with Canadian public schools to analyze the Canada-specific discrimination to Muslims. Secondly, it is worth conducting this experiment in other types of schooling such as in secondary and post-secondary institutions, to analyze whether Muslim discrimination differs across other academic settings. Lastly, it may help to add more dimension to this student by incorporating their gender and social class within emails sent out to schools, as this may bring light to more hidden trends and the discrimination that is encountered by specific groups of Muslims. 
 
 \newpage
 
