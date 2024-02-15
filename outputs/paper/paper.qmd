@@ -140,7 +140,15 @@ knitr::include_graphics(file.path(here::here(),"outputs/models/replicated_figure
 
 ## Perception about Muslims in Canada and Potential Administrative Discrimination againt them  {#sec-first-point}
 
-If my paper were 10 pages, then should be be at least 2.5 pages. The discussion is a chance to show off what you know and what you learnt from all this.
+Canada is not new to Islamophobic attitudes and so, it is worth exploring the results of this study and their implications with respect to Canada, especially Quebec.
+
+Bill 21, a bill passed in Quebec, bars public school teachers, police officers, judges and government lawyers, among other civil servants in positions of authority, from wearing religious symbols — such as hijab, crucifixes or turbans — while at work. According to CBC news, this bill has negatively impacted Muslim women the most. The article goes to state that a Muslim teacher lost her job for not following this rule and law which tend further hatred towards Muslims. Muslim women have experience insults such as "dirty immigrants", "These Muslim women with rags on their heads, if they are not able to integrate, let them return to their country". Furthermore, CBC reports that 47% of Muslim women reported to treated unfairly by a person in authority. (Rukavina 2022) 
+More generally, the general perception towards Muslims in Canada is not favorable as shown in a study conducted by Angus Reid Institute, revealing that 52% of Quebec and 39% rest of Canada view the religion of Islam in an unfavorable manner. 
+This study proceeds to suggest that there some correlation between age and education when comes to the discrimination. Those who very negatively view of Muslims tend to be more older and half of them have high school diploma or less. In contrast, younger Canadians tend to have a very positive view towards Muslims and those who have a post-secondary education. 
+Since, in 2005, it was revealed that 57% of Canadian school principals were over the age of 50 years of age or older (Blouin 2005) and by the Canadian Education Act, "each school principal has the drastic power to refuse to admit to school any person whose presence in the school or classroom would in the principal's judgment be detrimental to the physical or mental well-being of the pupils" (AODA 2020), it is unsurprising to imagine how many Canadian Muslim pupils may have been rejected admission from a school strictly on the basis of their religion, in a similar fashion to the Muslim Danish pupils studied in this paper. 
+Furthermore, it can be interpreted in a broader sense beyond just school admissions issues, suggesting that administrative discrimination stemming from Islamophobic sentiments could occur when Muslims seek access to various other public services or opportunities.
+However, more research is needed to assess the unequal opportunities faced by Muslims in Canadian schools and other public services resulting from administrative discrimination.
+
 
 ## Ethical Reflection
 aaa
