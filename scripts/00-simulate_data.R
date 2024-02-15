@@ -1,6 +1,6 @@
 #### Preamble ####
 # Purpose: Simulates the dataset regarding the Denmark primary schools and their response type regarding Muslim and Danish admission to the school
-# Author: Fares
+# Author: Fares Alkorani
 # Date: 11 February 2024
 # Contact: 156137245+faralk@users.noreply.github.com
 # License: MIT
