@@ -40,12 +40,12 @@ This paper is organized into 4 sections: Introduction, Data, Results and Discuss
 
 ## Source
 
-This paper reproduces two results from "The Unequal Distribution of Opportunity: A National Audit Study of Bureaucratic Discrimination in Primary School Access(2020) by Olsen, Kyhse-Anderson, Moynihan" in the American Journal of Social Science. Our study mainly focuses on the findings whether 1) Muslim gets withdrawn from the public service more frequently 2) Muslims gets the the administrative burdens more often than Danish.
+This paper reproduces two results from "The Unequal Distribution of Opportunity: A National Audit Study of Bureaucratic Discrimination in Primary School Access(2020) by Olsen, Kyhse-Anderson, Moynihan" in the American Journal of Social Science. Our study mainly focuses on the findings whether 1) Muslim gets withdrawn from the public service more frequently 2) Muslims gets the administrative burdens more often than Danish.
 
 ## Methodology
 
 The original experiment was conducted with 1,698 primary schools in Denmark, where fictitious emails regarding student transfer requests were sent to each school. These emails were sent under different names (Muslim/Danish), with 850 emails sent under one name and 848 under the other. Fictitious students were also assigned diligence traits, which could be discerned from the content of the emails (Overview of Senders’ and Respondents’ traits). Additionally, the original study examined both the characteristics of the schools and those of the senders. The characteristics of the schools (whether the school is located in a major city, its geographical region, the average student grades, the number of students, the number of non-Danish students, and the school type.) were investigated using the Danish Ministry of Education database, while the characteristics of the senders were determined based on the content of the response emails.
-Furthermore, email responses to transfer requests received from schools were measured in terms of decision type rate, compliance cost rate, and psychological cost rate for each ethnicity (Danish/Muslim), depending on the content of the email. For the decision type, response emails were classified into three categories: clear reject, unclear response, and clear accept. Also, for compliance cost, it was categorized into four groups based on the format of the email content: simple question, complex question, request a phone call, and request to meet. Since the difference of decision type rates and compliance cost rates between Danish and Muslim represent two forms of administrative discrimination mentioned above, our study will also verify these two sets of results and discuss the potential administrative discrimination against Muslims in Canada.
+Furthermore, email responses to transfer requests received from schools were measured in terms of decision type rate, compliance cost rate, and psychological cost rate for each ethnicity (Danish/Muslim), depending on the content of the email. For the decision type, response emails were classified into three categories: clear reject, unclear response, and clear accept. Also, for compliance cost, it was categorized into four groups based on the format of the email content: simple question, complex question, request a phone call, and request to meet. Since the difference of decision type rates and compliance cost rates between Danish and Muslim represent two forms of administrative discrimination mentioned above, our study will verify these two sets of results and discuss the potential administrative discrimination against Muslims in Canada.
 
 ### Senders and Respondents'(schools) trait
 
@@ -89,16 +89,16 @@ Furthermore, email responses to transfer requests received from schools were mea
 
         Categorizing receiving emails by 3 categories
 
-        1.  Clear Reject
-        2.  Unclear Response
+        1.  Clear Rejection
+        2.  Unclear Response: captures a absence of any reference to rejection or approval 
         3.  Clear Acceptance
 
         [**Giving administrative burdens**]{.underline}
 
         Categorizing receiving emails by 4 categories
 
-        1.  Simple Question
-        2.  Complex Question
+        1.  Simple Question: captures questions about the name of the child and other basic factual matters
+        2.  Complex Question: captures quetions more detailed information about the child than just basic factual matters
         3.  Request a Phone call
         4.  Request to meet
 
@@ -134,7 +134,7 @@ knitr::include_graphics(file.path(here::here(),"outputs/models/replicated_figure
 knitr::include_graphics(file.path(here::here(),"outputs/models/replicated_figure2.png")) 
 ```
 
-@fig-compliance_cost displays the compliance cost rate between each ethnic group. Muslims showed higher frequencies in both simple and complex questions, with 8.5% and 0.5% more, respectively. This indicates that Muslims are subjected to discrimination in the form of imposing administrative burdens. Regarding the request for meetings, there was not a significant difference between the two racial groups. However, in contrast to simple and complex questions, Danish individuals showed a 14% higher rate of requesting phone calls. According to the interpretation of the original study results, administrative officers responsible for admissions utilized phone calls as an informal verification method, indicating higher social trust towards Danes. Therefore, the higher rate of phone call requests for Danes does not represent compliance costs but rather reflects higher social trust towards Danes, highlighting administrative discrimination against Muslims.
+@fig-compliance_cost displays the compliance cost rate between each ethnic group. Muslims showed higher frequencies in both simple and complex questions, with 8.5% and 0.5% more, respectively. This indicates that Muslims are subjected to discrimination in the form of imposing administrative burdens. Regarding the request for meetings, there was not a significant difference between the two ethnic groups. However, in contrast to simple and complex questions, Danish individuals showed a 14% higher rate of requesting phone calls. According to the interpretation of the original study results, administrative officers responsible for admissions utilized phone calls as an informal verification method, indicating higher social trust towards Danes. Therefore, the higher rate of phone call requests for Danes does not represent compliance costs but rather reflects higher social trust towards Danes, highlighting administrative discrimination against Muslims.
 
 # Discussion
 
