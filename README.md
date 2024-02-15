@@ -6,8 +6,6 @@ This repo features a reproduction of Asmus Leth Olsen, Jonas Høgh Kyhse-Anderse
 
 A replication using the Social Science Reproduction Platform was also produced: <https://www.socialsciencereproduction.org/reproductions/b5ba971d-4eee-4a10-8225-4c7d7654d5e0/index>
 
-Aspects of the code were written with the help of the ChatGPT 3.5,the entire chat history is available in `inputs/llms/usage.txt`. \>\>\>\>\>\>\> d9a420b2c3f846b28644583192989d4b10c16dfc
-
 Aspects of the code were written with the help of the ChatGPT 3.5,the entire chat history is available in `inputs/llms/usage.txt`.
 
 Our study:
